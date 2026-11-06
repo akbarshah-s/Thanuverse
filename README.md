@@ -23,6 +23,8 @@ npm run start
 
 The included `render.yaml` configures a Render web service and prompts for `DATABASE_URL`. Create a PostgreSQL database with a provider of your choice and set its connection URL as a secret environment variable in Render. Use a TLS-enabled connection URL. The service requires this variable at startup so it cannot silently fall back to temporary storage.
 
+To deploy from the GitHub repository, open the Render dashboard, choose **New → Blueprint**, select `akbarshah-s/Thanuverse`, and apply the `render.yaml` blueprint. Set `DATABASE_URL` to the connection string for your PostgreSQL database in Render's environment settings; do not share the value publicly. Once the service reports **Live**, use its `onrender.com` URL as the website link.
+
 For local development without `DATABASE_URL`, room data is stored in `data/rooms.json`. Put any public deployment behind HTTPS before sharing it.
 
 Room content is stored in PostgreSQL (or in the local JSON file during development), so use a database provider you trust and protect its credentials. The server allows at most two simultaneous connections per room.
