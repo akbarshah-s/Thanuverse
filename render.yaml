@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: koiverse
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: REQUIRE_DATABASE
+        value: "true"
+      - key: DATABASE_URL
+        sync: false
